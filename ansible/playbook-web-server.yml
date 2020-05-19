@@ -1,0 +1,30 @@
+---
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  remote_user: ubuntu
+  vars:
+    root_location: "/system/"
+    user_name: "ubuntu"
+    os_name: "ubuntu"     
+    soft_from_remote: true
+    
+    tomcat_version: "apache-tomcat-8.0.36"
+    java_version: "jdk1.8.0_144"
+    jdk_archive_file: "jdk1.8.0_144.tar.gz"
+    
+    nexus_server: "nexus.rezos.io"
+    nexus_user_name: "thusitha"
+    nexus_password: "123456"
+    
+    mysql_root_password: "123456"
+    
+    deploy_war_name: "aws-web.war"
+  roles:
+#    -  default
+#    -  nginx
+#    -  java
+#    -  mysql
+    -  tomcat
+    - tomcat-restart
+#    -  deploy

@@ -1,0 +1,35 @@
+---
+# tasks file for python
+
+- name: Create New folder
+  file:
+    path: "{{ root_location }}"
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0775
+
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  become: true
+  when: ("{{ os_name }}" == "ubuntu")
+
+- name: Install default ubuntu
+  apt: name={{ item }} state=present
+  become: true
+  when: ("{{ os_name }}" == "ubuntu")
+  with_items:
+    - python
+    - gcc-multilib
+    - htop
+    - python3
+    - zip
+
+- name: Install default centos
+  yum: name={{ item }} state=present
+  become: true
+  when: ("{{ os_name }}" == "centos")
+  with_items:
+    - python 
+    - htop
+    - zip

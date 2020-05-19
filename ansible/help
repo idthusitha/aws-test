@@ -1,0 +1,30 @@
+######################################################
+ansible all -m ping
+
+ansible all -m ping --ask-pass
+ansible all -m ping --ask-sudo-pass
+
+##for add remote server public key
+
+sudo ansible-galaxy install GROG.authorized-key 
+ansible-playbook setup-ssh.yml --ask-pass -l host1,host2,host3
+
+ansible-playbook demo.yml --ask-pass
+
+ssh-copy-id 52.41.132.159
+
+######################################################
+need to create initial security group (80, 8080, 22 for ssh)
+sudo apt-get install python (this is need to install mannuly or need to create emi template)
+
+add public ip for ansible
+
+######################################################
+ansible-playbook playbook-web-server --ask-pass
+
+ansible-playbook playbook-web-server --ask-pass
+ansible-playbook playbook-web-server --ask-become-pass
+ssh-keygen -R 172.16.16.152
+ssh-copy-id rezuser@172.16.16.152
+ssh rezuser@172.16.16.152
+######################################################

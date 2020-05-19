@@ -1,0 +1,28 @@
+---
+# tasks file for tomcat
+- name: Create New folder
+  file:
+    path: "{{ root_location }}tomcat/"
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0775
+- name: Copy all zip files
+  copy:
+    src: "soft/{{ item }}"
+    dest: "/tmp/"
+    remote_src: no
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"
+  with_items:
+    - "{{ tomcat_version }}.zip"  
+    
+- name: Extract {{ tomcat_version }}.zip
+  unarchive:
+    src: "/tmp/{{ tomcat_version }}.zip"
+    dest: "{{ root_location }}/tomcat/"
+    copy: no
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"

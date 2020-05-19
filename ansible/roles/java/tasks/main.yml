@@ -1,0 +1,61 @@
+---
+# tasks file for java
+
+- name: Create New folder
+  file:
+    path: "/usr/java/jdk/bin/"
+    state: directory
+    owner: "root"
+    group: "root"
+    mode: 0775
+
+- name: Check Java Version Existance
+  stat:
+    path: "{{ root_location }}{{ java_version }}/bin/java"
+  register: java_avail
+  
+- name: Download JDK from Nexus
+  get_url:
+    url: "http://{{ nexus_server }}/repository/jdk/{{ jdk_archive_file }}"
+    dest: "/tmp/"
+    url_username: "{{ nexus_user_name }}"
+    url_password: "{{ nexus_password }}"
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"
+  when : java_avail and soft_from_remote
+
+- name: Extract JDK
+  unarchive:
+    src: "/tmp/{{ jdk_archive_file }}"
+    dest: "{{ root_location }}"
+    copy: no
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+  when : java_avail
+    
+- name: Create Symlink for Java Bin
+  file:
+    src: "{{ root_location }}{{ java_version }}/bin/java"
+    dest: "/usr/java/jdk/bin/java"
+    state: link
+    force: yes
+  when : java_avail
+
+- name: Append JAVA_HOME to ~/.bashrc
+  lineinfile:
+    dest: ~/.bashrc
+    line: "{{item}}"
+  with_items:
+    - export JAVA_HOME={{ root_location }}{{ java_version }}
+    - export PATH=$JAVA_HOME/bin:$PATH
+  when: ("{{ os_name }}" == "ubuntu")
+
+- name: Append JAVA_HOME to /etc/bash.bashrc
+  lineinfile:
+    dest: /etc/bash.bashrc
+    line: "{{item}}"
+  with_items:
+    - export JAVA_HOME={{ root_location }}{{ java_version }}
+    - export PATH=$JAVA_HOME/bin:$PATH
+  when: ("{{ os_name }}" == "centos")
