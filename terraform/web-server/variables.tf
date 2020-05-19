@@ -6,9 +6,10 @@
 #########################################################################
 ##Generate from here (https://console.aws.amazon.com/iam/home?#/security_credential)
 ##rootkey.csv
-variable "ACCESS_KEY" {  default="xxxxxxxxxxx"  }
-variable "SECRET_KEY" {  default="xxxxxxxxxxx"  }
-variable "KEY_NAME" {  default="aws_key_new"  }
+variable "ACCESS_KEY" {  default="xxxxxxxxxxxxxxxx"  }
+variable "SECRET_KEY" {  default="xxxxxxxxxxxxxxxx"  }
+variable "key_name" {  default="thusitha_aws"  }
+variable "SEC_KEY_PATH" {  default="/home/thusitha/.ssh/thusitha_aws.pem"  }
 #########################################################################
 
 
