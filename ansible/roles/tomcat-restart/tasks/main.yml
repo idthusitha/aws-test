@@ -3,7 +3,7 @@
 - name: ==> shutdown qle tomcat ,path = "{{ root_location }}tomcat/{{ tomcat_version }}/bin/"
   command: sh {{ root_location }}tomcat/{{ tomcat_version }}/bin/shutdown.sh
   become: true
-  become_user: rezuser
+  become_user: ubuntu
 
 - name: ==> sleep 5s
   command: sleep 5s
@@ -27,4 +27,4 @@
 - name: ==> startup qle tomcat , path = {{ root_location }}tomcat/{{ tomcat_version }}/bin/startup.sh
   shell: setsid /bin/sh -i -c "{{ root_location }}tomcat/{{ tomcat_version }}/bin/startup.sh"
   become: true
-  become_user: rezuser
+  become_user: ubuntu
