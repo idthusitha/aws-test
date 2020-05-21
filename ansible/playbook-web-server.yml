@@ -18,16 +18,11 @@
     nexus_password: "123456"
     
     mysql_root_password: "123456"
-    
-    deploy_war_name: "aws-web.war"    
        
     github_token: "3d26fa975ad28908cf909ab4f7551a979f26c1b6" 
     github_user: "idthusitha"
     github_repocitory: "spring-boot-web-application"
-#    
-#    github_token: "275dd920d9c314f15a93fc41811b1b491335346d" 
-#    github_user: "MalithJayakody"
-#    github_repocitory: "AWS_Terraform_Ansible_Test"
+    deploy_war_name: "spring-boot-web-application.war"
     
     gradle_version: "5.2.1"
     gradle_zipfile: "gradle-{{gradle_version}}-all.zip"
@@ -35,10 +30,11 @@
   roles:
 #    -  default
 #    -  nginx
-#   -  java
+#    -  java
 #    -  mysql
 #    -  tomcat
 #    - tomcat-restart
 #    -  release
-    -  build
+#    -  build
     -  deploy
+    - tomcat-restart

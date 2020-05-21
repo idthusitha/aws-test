@@ -12,19 +12,19 @@
   apt:
     name: git
     
-#- name: Download code from git repocitory    
-#  git:
-#    repo: 'https://{{ github_token }}@github.com/{{ github_user }}/{{ github_repocitory }}.git'
-#    dest: "{{ root_location }}workspace/{{ github_repocitory }}"
-#    version: master
-#    accept_hostkey: yes
-#    force: true
-    
-- name: Clone a private repository into /opt.
+- name: Download code from git repocitory   01
   git:
-    repo: git@github.com:{{ github_user }}/{{ github_repocitory }}.git
-    version: master
+    repo: 'https://{{ github_token }}@github.com/{{ github_user }}/{{ github_repocitory }}.git'
     dest: "{{ root_location }}workspace/{{ github_repocitory }}"
+    version: master
     accept_hostkey: yes
-  # ssh-agent doesn't allow key to pass through remote sudo commands.
-  become: no
+    force: true
+    
+#- name: Download code from git repocitory 02
+#  git:
+#    repo: git@github.com:{{ github_user }}/{{ github_repocitory }}.git
+#    version: master
+#    dest: "{{ root_location }}workspace/{{ github_repocitory }}"
+#    accept_hostkey: yes
+#  # ssh-agent doesn't allow key to pass through remote sudo commands.
+#  become: no

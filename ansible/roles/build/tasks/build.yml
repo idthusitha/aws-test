@@ -4,21 +4,21 @@
     dest: /etc/environment 
     state: present 
     regexp: '^JAVA_HOME' 
-    line: 'JAVA_HOME=/{{ root_location }}/{{ java_version }}'
+    line: 'JAVA_HOME={{ root_location }}{{ java_version }}'
     
 - name: change the workspace permistion
-  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ github_project }}
+  command: chown -R {{ user_name }}:{{ user_name }} {{ root_location }}workspace/{{ github_repocitory }}
 
   
-#- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
-#  command: gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
+#- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ github_repocitory }}/build.gradle deploymicro
+#  command: gradle --build-file=/tmp/workspace/{{ github_repocitory }}/build.gradle deploymicro
   
-- name: run gradle deploy command sh /tmp/workspace/{{ github_project }}/gradlew
-  command: sh /tmp/workspace/{{ github_project }}/gradlew
+- name: run gradle deploy command sh {{ root_location }}workspace/{{ github_repocitory }}/gradlew
+  command: sh {{ root_location }}workspace/{{ github_repocitory }}/gradlew
 
-- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
-  command: gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle bootWar
+- name: run gradle deploy command gradle --build-file={{ root_location }}workspace/{{ github_repocitory }}/build.gradle deploymicro
+  command: gradle --build-file={{ root_location }}workspace/{{ github_repocitory }}/build.gradle deploy
 
 
 - name: change the war permistion
-  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ github_project }}
+  command: chown -R {{ user_name }}:{{ user_name }} {{ root_location }}workspace/{{ github_repocitory }}

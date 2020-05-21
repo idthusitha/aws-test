@@ -1,4 +1,4 @@
 --- 
 
 - name: copy war into tomact
-  command: cp /tmp/workspace/{{ github_project }}/build/libs/{{  deploy_war_name }} {{ root_location }}tomcat/{{ tomcat_version }}/webapps/
+  command: cp {{ root_location }}workspace/{{ github_repocitory }}/build/libs/{{  deploy_war_name }} {{ root_location }}tomcat/{{ tomcat_version }}/webapps/
