@@ -24,6 +24,7 @@
     - htop
     - python3
     - zip
+    - nmon
 
 - name: Install default centos
   yum: name={{ item }} state=present
