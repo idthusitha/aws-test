@@ -31,10 +31,10 @@
     -  default
     -  nginx
     -  java
-#    -  mysql
+    -  mysql
     -  tomcat
-    - tomcat-restart
+    -  tomcat-restart
     -  release
     -  build
     -  deploy
-    - tomcat-restart
+    -  tomcat-restart
