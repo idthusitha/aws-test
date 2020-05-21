@@ -1,13 +1,4 @@
----
-# tasks file for tomcat
-- name: Copy war file into tomcat
-  copy:
-    src: "soft/{{ item }}"
-    dest: "/{{ root_location }}/tomcat/{{ tomcat_version }}/webapps"
-    remote_src: no
-    owner: "{{ user_name }}"
-    group: "{{ user_name }}"
-    mode: "0775"
-  with_items:
-    - "aws-web.war"  
-   
+--- 
+
+- name: copy war into tomact
+  command: cp /tmp/workspace/{{ bitbucket_project }}/build/libs/{{  deploy_war_name }} {{ root_location }}tomcat/{{ tomcat_version }}/webapps/

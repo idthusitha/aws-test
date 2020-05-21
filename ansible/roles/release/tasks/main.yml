@@ -1,0 +1,27 @@
+---
+# tasks for deploy
+- name: Create workspace folder
+  file:
+    path: "/tmp/workspace"
+    state: directory
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: 0775
+
+- name: install git package
+  apt:
+    name: git
+    
+- name: Download code from git repocitory
+  git:
+    repo: https://github.com/idthusitha/spring-boot-web-application.git
+    dest: /tmp/workspace/{{ bitbucket_project }}/
+
+
+#- name: Download code from git repocitory
+#  git:
+#    repo: 'https://{{ bitbucket_user }}:{{ bitbucket_password }}@github.com/{{ bitbucket_repocitory }}/{{ bitbucket_project }}.git'
+#    dest: /tmp/workspace/{{ bitbucket_project }}/
+#    version: master
+#    accept_hostkey: yes
+#    force: true

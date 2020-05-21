@@ -1,0 +1,7 @@
+---
+
+- name: install gradle
+  include: install.yml
+  
+- name: install gradle
+  include: build.yml

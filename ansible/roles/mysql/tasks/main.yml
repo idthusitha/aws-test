@@ -1,10 +1,10 @@
 ---
-- name: Install the MySQL packages
-  apt: name={{ item }} state=installed update_cache=yes
-  with_items:
-    - mysql-server
-    - python-mysqldb
-    - libmysqlclient-dev
+#- name: Install the MySQL packages
+#  apt: name={{ item }} state=installed update_cache=yes
+#  with_items:
+#    - mysql-server
+#    - python-mysqldb
+#    - libmysqlclient-dev
 
 - name: Start the MySQL service
   action: service name=mysql state=started
