@@ -2,8 +2,11 @@
 
 - name: Download Gradle {{ gradle_version }}  
   get_url: 
-    dest "{{ root_location }}" 
-    urlhttps://services.gradle.org/distributions/{{ gradle_zipfile }}
+    url: "https://services.gradle.org/distributions/{{ gradle_zipfile }}"
+    dest: "{{ root_location }}" 
+    owner: "{{ user_name }}"
+    group: "{{ user_name }}"
+    mode: "0775"
   
 
 - name: Extract Gradle

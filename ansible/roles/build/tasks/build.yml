@@ -7,18 +7,18 @@
     line: 'JAVA_HOME=/{{ root_location }}/{{ java_version }}'
     
 - name: change the workspace permistion
-  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ bitbucket_project }}
+  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ github_project }}
 
   
-#- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ bitbucket_project }}/build.gradle deploymicro
-#  command: gradle --build-file=/tmp/workspace/{{ bitbucket_project }}/build.gradle deploymicro
+#- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
+#  command: gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
   
-- name: run gradle deploy command sh /tmp/workspace/{{ bitbucket_project }}/gradlew
-  command: sh /tmp/workspace/{{ bitbucket_project }}/gradlew
+- name: run gradle deploy command sh /tmp/workspace/{{ github_project }}/gradlew
+  command: sh /tmp/workspace/{{ github_project }}/gradlew
 
-- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ bitbucket_project }}/build.gradle deploymicro
-  command: gradle --build-file=/tmp/workspace/{{ bitbucket_project }}/build.gradle bootWar
+- name: run gradle deploy command gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle deploymicro
+  command: gradle --build-file=/tmp/workspace/{{ github_project }}/build.gradle bootWar
 
 
 - name: change the war permistion
-  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ bitbucket_project }}
+  command: chown -R {{ user_name }}:{{ user_name }} /tmp/workspace/{{ github_project }}
