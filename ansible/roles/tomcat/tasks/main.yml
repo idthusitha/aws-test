@@ -26,3 +26,8 @@
     owner: "{{ user_name }}"
     group: "{{ user_name }}"
     mode: "0775"
+    
+- name: ==> startup qle tomcat , path = {{ root_location }}tomcat/{{ tomcat_version }}/bin/startup.sh
+  shell: setsid /bin/sh -i -c "{{ root_location }}tomcat/{{ tomcat_version }}/bin/startup.sh"
+  become: true
+  become_user: ubuntu

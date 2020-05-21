@@ -16,7 +16,7 @@
 - name: run gradle deploy command sh {{ root_location }}workspace/{{ github_repocitory }}/gradlew
   command: sh {{ root_location }}workspace/{{ github_repocitory }}/gradlew
 
-- name: run gradle deploy command gradle --build-file={{ root_location }}workspace/{{ github_repocitory }}/build.gradle deploymicro
+- name: run gradle deploy command gradle --build-file={{ root_location }}workspace/{{ github_repocitory }}/build.gradle deploy
   command: gradle --build-file={{ root_location }}workspace/{{ github_repocitory }}/build.gradle deploy
 
 

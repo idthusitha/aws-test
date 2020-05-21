@@ -37,25 +37,25 @@
 - name: Create Symlink for Java Bin
   file:
     src: "{{ root_location }}{{ java_version }}/bin/java"
-    dest: "/usr/java/jdk/bin/java"
+    dest: "/usr/bin/java"
     state: link
     force: yes
-  when : java_avail
+#  when : java_avail
 
-- name: Append JAVA_HOME to ~/.bashrc
-  lineinfile:
-    dest: ~/.bashrc
-    line: "{{item}}"
-  with_items:
-    - export JAVA_HOME={{ root_location }}{{ java_version }}
-    - export PATH=$JAVA_HOME/bin:$PATH
-  when: ("{{ os_name }}" == "ubuntu")
-
-- name: Append JAVA_HOME to /etc/bash.bashrc
-  lineinfile:
-    dest: /etc/bash.bashrc
-    line: "{{item}}"
-  with_items:
-    - export JAVA_HOME={{ root_location }}{{ java_version }}
-    - export PATH=$JAVA_HOME/bin:$PATH
-  when: ("{{ os_name }}" == "centos")
+#- name: Append JAVA_HOME to ~/.bashrc
+#  lineinfile:
+#    dest: ~/.bashrc
+#    line: "{{item}}"
+#  with_items:
+#    - export JAVA_HOME={{ root_location }}{{ java_version }}
+#    - export PATH=$JAVA_HOME/bin:$PATH
+#  when: ("{{ os_name }}" == "ubuntu")
+#
+#- name: Append JAVA_HOME to /etc/bash.bashrc
+#  lineinfile:
+#    dest: /etc/bash.bashrc
+#    line: "{{item}}"
+#  with_items:
+#    - export JAVA_HOME={{ root_location }}{{ java_version }}
+#    - export PATH=$JAVA_HOME/bin:$PATH
+#  when: ("{{ os_name }}" == "centos")

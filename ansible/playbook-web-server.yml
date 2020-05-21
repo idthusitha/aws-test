@@ -28,13 +28,13 @@
     gradle_zipfile: "gradle-{{gradle_version}}-all.zip"
     gradle_folder: "gradle-{{gradle_version}}"
   roles:
-#    -  default
-#    -  nginx
-#    -  java
+    -  default
+    -  nginx
+    -  java
 #    -  mysql
-#    -  tomcat
-#    - tomcat-restart
-#    -  release
-#    -  build
+    -  tomcat
+    - tomcat-restart
+    -  release
+    -  build
     -  deploy
     - tomcat-restart
