@@ -17,7 +17,7 @@
     nexus_user_name: "thusitha"
     nexus_password: "123456"
     
-    mysql_root_password: "123456"
+    mysql_root_password: "12345678"
        
     github_token: "3d26fa975ad28908cf909ab4f7551a979f26c1b6" 
     github_user: "idthusitha"
