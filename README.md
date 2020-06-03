@@ -1,6 +1,7 @@
 # AWS - Ansible - Terraform for CICD
 
 ### Prerequisites:
+   * AWS Account
    * git
    * Java 1.8
    * Gradle 5.0  
