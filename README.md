@@ -82,9 +82,9 @@ Please change the following properties in ansible.cfg for configuring pem key
 ## Usage
 
 	cd {{ WORKSPACE }}/aws-deploy/ansible/
-	ssh-keygen -R 172.16.16.152
-	ssh-copy-id rezuser@172.16.16.152
-	ssh rezuser@172.16.16.152	
+	#ssh-keygen -R 172.16.16.152
+	#ssh-copy-id rezuser@172.16.16.152
+	#ssh rezuser@172.16.16.152	
 	ansible all -m ping	
 	ansible-playbook playbook-tomcat-server.yml --ask-pass
 	ansible-playbook playbook-tomcat-server.yml --ask-become-pass
