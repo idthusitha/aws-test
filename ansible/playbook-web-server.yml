@@ -21,8 +21,8 @@
        
     github_token: "3d26fa975ad28908cf909ab4f7551a979f26c1b6" 
     github_user: "idthusitha"
-    github_repocitory: "spring-boot-web-application"
-    deploy_war_name: "spring-boot-web-application.war"
+    github_repocitory: "in-memory-cache"
+    deploy_war_name: "in-memory-cache.war"
     
     gradle_version: "5.2.1"
     gradle_zipfile: "gradle-{{gradle_version}}-all.zip"
@@ -31,7 +31,7 @@
     -  default
     -  nginx
     -  java
-    -  mysql
+#    -  mysql
     -  tomcat
     -  tomcat-restart
     -  release
