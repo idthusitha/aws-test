@@ -36,10 +36,7 @@ Terraform must first be installed on your machine. Terraform is distributed as a
 
 Change the following file for connect to AWS using terraform
 	
-	{{ WORKSPACE }}/aws-test/terraform/web-server/variables.tf
-	
-Changes:
-	
+	{{ WORKSPACE }}/aws-test/terraform/web-server/variables.tf	
 	variable "access_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
 	variable "secret_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
 
