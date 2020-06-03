@@ -31,21 +31,23 @@ Terraform must first be installed on your machine. Terraform is distributed as a
 	terraform --version
 
 
-## Repository Setup Installations (Terraform)
+### Repository Setup Installations (Terraform)
 
 
 Change the following file for connect to AWS using terraform
 	
+	cd {{ WORKSPACE }}
+	git clone https://github.com/idthusitha/aws-test.git
+	cd aws-test
 	{{ WORKSPACE }}/aws-test/terraform/web-server/variables.tf	
 	variable "access_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
 	variable "secret_key" {  default="XXXXXXXXXXXXXXXXXXXXXXXXXXXX"  }
-
 
 Creating instance in AWS Cloud
 ### Create access_key and secret_key from AWS Account
 
 
-## Usage	
+### Usage	
 
 	cd {{ WORKSPACE }}/aws-test/terraform/	
 	terraform init	
@@ -77,7 +79,7 @@ Please change the following properties in ansible.cfg for configuring pem key
 	{{ WORKSPACE }}/aws-test/ansible/ansible.cfg
 	private_key_file = /home/thusitha/.ssh/thusitha_aws.pem
 
-## Usage
+### Usage
 
 	cd {{ WORKSPACE }}/aws-deploy/ansible/
 	#ssh-keygen -R 172.16.16.152
